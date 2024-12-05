@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  pingvin-share:
+    image: stonith404/pingvin-share
+    restart: unless-stopped
+    ports:
+      - 8080:3000     # 8080可以改成服务器上未被使用的端口
+    volumes:
+      - "${PWD}/data:/opt/app/backend/data"  # ${PWD}/data表示在当前目录下创建data文件夹用于存放文件
