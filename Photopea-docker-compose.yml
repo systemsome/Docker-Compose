@@ -1,0 +1,12 @@
+version: '3.3'  # 这是一个Docker Compose文件的版本声明，它表明该文件符合Docker Compose文件格式版本3.3
+services:
+    ywsj_photopea:   #服务名，可以自定义
+        container_name: ywsj_photopea    #容器名，可以自定义
+        ports:
+            - '8887:8887'   # 冒号:左边的photopea可以改成任意vps上未使用过的端口,冒号右边是本docker镜像里的端口
+        environment:
+            - PUID=0    # 用户ID,在终端输入id可以查看当前用户的id
+            - PGID=0    # 组ID同上
+            - TZ=Asia/Shanghai  #时区，可以自定义
+        restart: always    #开启自启动其他选项看以下备注
+        image: kovaszab/photopea    #镜像名一般都是使用的哪个镜像就写哪个镜像。
