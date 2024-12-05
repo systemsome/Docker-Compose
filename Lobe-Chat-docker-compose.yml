@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+    lobe-chat:
+        image: lobehub/lobe-chat
+        container_name: lobe-chat
+        environment:
+            - ACCESS_CODE=123456  #密码设置
+            - 'OPENAI_PROXY_URL=https://api.chatanywhere.tech' #代理地址
+            - OPENAI_API_KEY=sk-08iwtTY8I1cMcrdIM0oIn3AhzECdQVB0IXRV2eNTHkYUKdui  #api
+        ports:
+            - '3210:3210'
