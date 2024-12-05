@@ -1,0 +1,11 @@
+version: '3.3'
+services:
+    firefox:
+        container_name: firefox
+        ports:
+            - '5800:5800'
+        volumes:
+            - './firefox:/config:rw'
+        environment:
+            - LANG=zh_CN.UTF-8
+        image: jlesage/firefox
