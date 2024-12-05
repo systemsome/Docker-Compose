@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  fireshare:
+    container_name: fireshare
+    image: shaneisrael/fireshare:latest    # latest表示最新版本
+    ports:
+      - "8080:80"        # 冒号左边的端口可以自己修改成服务器未占用的端口，冒号右边不要改！
+    volumes:
+      - ./data:/data         # 冒号左边的路径可以自己修改（./代表当前目录下），冒号右边不要改！
+      - ./processed:/processed # 同上
+      - ./videos:/videos  # 同上
+    environment:
+    - ADMIN_USERNAME=admin    # 自己设置一个用户名
+    - ADMIN_PASSWORD=admin    # 自己修改一个密码
