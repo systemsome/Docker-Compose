@@ -1,0 +1,7 @@
+services:
+  omni-tools:
+    image: iib0011/omni-tools:latest       # 使用 iib0011/omni-tools 的最新版镜像
+    container_name: omni-tools             # 容器名称设为 omni-tools，方便管理
+    restart: always                        # 容器异常退出时自动重启，确保服务持续运行
+    ports:
+      - "8580:80"          
