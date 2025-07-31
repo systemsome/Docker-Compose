@@ -5,5 +5,5 @@ services:
     ports:
       - "8009:8080"                   # 将主机的 8899 端口映射到容器的 80 端口
     environment:
-      - PASSWORD=system             # 设置访问密码（留空表示不启用密码保护）
+      - PASSWORD=passwode             # 设置访问密码（留空表示不启用密码保护）
     restart: always                 # 容器异常退出后自动重启
