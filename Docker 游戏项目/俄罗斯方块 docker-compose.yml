@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  tetris-1:
+    container_name: tetris-1
+    image: swr.cn-north-4.myhuaweicloud.com/firfe/tetris-1:2019.05.15
+    network_mode: bridge
+    restart: always
+    logging:
+      options:
+        max-size: 1m
+        max-file: '3'
+    ports:
+      - 3000:3000
