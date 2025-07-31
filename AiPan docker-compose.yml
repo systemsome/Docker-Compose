@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  aipan-netdisk-search:
+    image: unilei/aipan-netdisk-search
+    ports:
+      - "3000:3000"  #左侧的3000可以自定义
+    restart: always
