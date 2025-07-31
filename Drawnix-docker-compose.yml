@@ -1,0 +1,7 @@
+services:
+  drawnix:
+    image: pubuzhixing/drawnix:latest  # 使用的镜像名称和版本（latest 表示最新版本）
+    container_name: drawnix            # 容器名称为 drawnix
+    ports:
+      - "8033:80"                      # 将主机的 8033 端口映射到容器的 80 端口（左侧可自行修改）
+    restart: always                    # 容器异常退出时自动重启
