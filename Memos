@@ -1,0 +1,8 @@
+services:
+  memos:
+    image: ghcr.io/usememos/memos:latest
+    ports:
+    - 5230:5230
+    volumes:
+    - ./data:/var/opt/memos
+    restart: always
