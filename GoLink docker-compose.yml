@@ -1,0 +1,12 @@
+ervices:
+  golink:  # 服务名称
+    image: ghcr.io/tailscale/golink:main  # 使用的镜像
+    container_name: golink  # 容器名称
+    restart: always  # 容器异常退出或系统重启后都会自动重启
+    ports:
+      - "8080:8080"  # 映射宿主机 8080 端口到容器 8080 端口
+    command: ["-dev-listen", ":8080"]  # 启动命令，监听 8080 端口
+    environment:
+      - TZ=Asia/Shanghai   # 设置时区为上海
+    volumes:
+      - ./data:/home/nonroot   # 将当前目录下的 data 文件夹挂载到容器的 /home/nonroot
