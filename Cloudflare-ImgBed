@@ -1,0 +1,10 @@
+services:
+    cloudflare-imgbed:
+        image: marseventh/cloudflare-imgbed:latest
+        volumes:
+            - './wrangler.toml:/app/wrangler.toml'
+            - './data:/app/data'
+        ports:
+            - '7658:8080'   #左侧的端口可以自定义
+        restart: always
+        container_name: cloudflare-imgbed
