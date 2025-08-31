@@ -1,0 +1,11 @@
+version: '3'
+services:
+  fastsend:
+    image:  918178/fastsend:latest
+    container_name: fastsend
+    restart: always
+    ports:
+      - 3000:3000
+    environment:
+      - NODE_ENV=production
+    command: node server/index.mjs
