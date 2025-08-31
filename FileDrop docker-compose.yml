@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  filedrop:
+    image: xtrendence/filedrop
+    container_name: filedrop
+    restart: always
+    ports:
+      - "5660:3180"
+    mem_limit: 1g
+    cpus: 0.5
