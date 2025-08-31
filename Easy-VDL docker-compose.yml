@@ -1,0 +1,9 @@
+services:
+ easy-vdl:
+  image: qq918652593/easy-vdl:latest  # 使用的镜像名称和版本（latest 表示最新版本）
+  container_name: easy-vdl            # 容器名称为 easy-vdl
+  ports:
+   - 8080:80                          # 将主机的 8080 端口映射到容器的 80 端口（左侧可自行修改）
+  volumes:
+   - /vol1/1000/docker/easy-vdl:/app/downloads
+  restart: always                     # 容器异常退出时自动重启
