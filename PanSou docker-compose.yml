@@ -1,0 +1,7 @@
+services:  # 定义服务集合，docker-compose 会管理这里的所有服务
+  pansou:  # 服务名称，可以自定义，用于区分不同服务
+    image: ghcr.io/fish2018/pansou-web  # 指定要使用的镜像，这里是从 GitHub 容器仓库拉取
+    container_name: pansou  # 容器名称，方便在 docker ps 或日志中查找
+    ports:  # 端口映射设置
+      - "22280:80"  # 将宿主机 22280 端口映射到容器的 80 端口
+    restart: always  # 容器自动重启策略，always 表示无论退出原因都会重启，除非手动停止
