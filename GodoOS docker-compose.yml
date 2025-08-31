@@ -1,0 +1,7 @@
+version: '3'
+services:
+  godoos:
+    ports:
+        - 56780:56780
+    container_name: godoos
+    image: godoos/godoos:latest
