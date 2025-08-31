@@ -1,0 +1,11 @@
+services:  
+  tools:  # 服务名称：tools
+    container_name: tools  # 容器名称
+    image: mereith/van-nav:latest  # 使用的镜像版本
+    restart: always  # 自动重启策略：容器异常退出时自动重启
+    ports:
+      - "6412:6412"  # 映射端口：宿主机6412 -> 容器6412
+    environment:
+      - TZ=Asia/Shanghai  # 设置时区为上海
+    volumes:
+      - ./data:/app/data  # 数据挂载：当前目录下的data 映射到容器内 /app/data
