@@ -1,0 +1,11 @@
+
+services:
+  xiaomusic:
+    image: hanxi/xiaomusic
+    container_name: xiaomusic
+    restart: unless-stopped
+    ports:
+      - 8090:8090
+    volumes:
+      - /volume1/Music:/app/music
+      - ./conf:/app/conf
