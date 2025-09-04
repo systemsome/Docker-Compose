@@ -13,3 +13,8 @@ services:
       - NEXT_PUBLIC_ENABLE_BLOCKAD=true    # 是否启用智能去广告功能（实验性）（默认：false，可选：true / false）
       - NEXT_PUBLIC_SEARCH_MAX_PAGE=10     # 搜索接口最大可拉取的页数（默认：5，范围：1-50）
       - NEXT_PUBLIC_AGGREGATE_SEARCH_RESULT=true  # 搜索结果是否按标题和年份聚合（默认：true，可选：true / false）
+
+    # 如需自定义配置，可挂载文件
+    # volumes:
+    #   - ./config.json:/app/config.json:ro
+
