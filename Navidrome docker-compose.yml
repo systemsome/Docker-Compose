@@ -1,0 +1,26 @@
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    user: 0:0 # should be owner of volumes
+    ports:
+      - "5410:4533"    #左侧的4533可以自定义
+    restart: always
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info  
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ""
+    volumes:
+      - "./io/data:/data"
+      - "./io/music:/music:ro"     #存放自己的音乐文件
+
+  music_tag_web:
+    image: xhongc/music_tag_web:latest
+    container_name: music_tag_web
+    ports:
+      - "8002:8001"                #左侧的8002可以自定义
+    volumes:
+      - ./io/music:/app/media    #存放自己的音乐文件
+      - ./io/tag/data:/app/data
+    restart: always
