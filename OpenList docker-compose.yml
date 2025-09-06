@@ -1,0 +1,14 @@
+services:
+  openlist:  # 定义名为 openlist 的服务
+    image: 'openlistteam/openlist:latest'  # 使用 openlist 的 最新 版本镜像， openlistteam/openlist:latest  #其他版本可以参考官网
+    container_name: openlist  # 设置容器名称为 openlist
+    user: '0:0' # Please replace `0:0` with the actual user ID and group ID you want to use to run OpenList.
+    volumes:
+      - './openlist:/opt/openlist/data'
+    ports:
+      - '5344:5244'  # 映射主机5344端口到容器5244端口
+    environment:
+      - PUID=0  # 设置容器内运行用户的用户ID为0（root）
+      - PGID=0  # 设置容器内运行用户的用户组ID为0（root）
+      - UMASK=022  # 设置默认文件权限掩码为022（文件权限755）
+    restart: always  # 容器退出后始终自动重启
