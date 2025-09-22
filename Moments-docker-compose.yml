@@ -1,12 +1,15 @@
 version: '3'
 services:
   moments:
-    image: kingwrcy/moments:latest   
+    image: kingwrcy/moments:latest
+    container_name: moments            # 指定容器名称为 moments
+    restart: always                    # 设置容器自动重启策略为 always
+    environment:                       # 配置环境变量
+      PORT: 3000                       # 设置应用运行端口为 3000
+      JWT_KEY: $JWT_KEY                # 读取 JWT 密钥，需在环境变量中设置也可不管
     ports:
       - "3000:3000"
     volumes:
-      - moments-data:/app/data
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
-volumes:
-  moments-data:
+      - ./data:/app/data
+      - ./etc/localtime:/etc/localtime:ro
+      - ./etc/timezone:/etc/timezone:ro
