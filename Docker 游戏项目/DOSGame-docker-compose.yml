@@ -1,0 +1,7 @@
+services:
+  dosgame-web-docker:  
+    container_name: dosgame  # 容器的名称，容器启动后会以这个名称显示
+    image: oldiy/dosgame-web-docker:latest  # 使用的镜像，latest是最新版本
+    ports:
+      - 9262:262  # 端口映射，将NAS的 9262 端口映射到容器的 262 端口
+    restart: always  # 自动重启策略，容器异常退出时自动重启
