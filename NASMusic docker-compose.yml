@@ -1,0 +1,12 @@
+services:
+  nas-music:
+    image: ywsj/nas-music:latest   # 使用本地构建的 ywsj/nas-music:latest 镜像
+    container_name: nas-music      # 容器名称
+    restart: always                # 容器异常退出时自动重启
+    ports:
+      - "3044:3000"                # 映射宿主机 3044 端口到容器 3000 端口
+    volumes:
+      - ./db:/opt/app/db           # 数据库存储目录（挂载到容器 /opt/app/db）
+      - ./music:/opt/app/music     # 音乐文件目录（请修改 ./music 为你自己的 NAS 音乐目录）
+    environment:
+      - TZ=Asia/Shanghai           # 设置容器时区为上海
