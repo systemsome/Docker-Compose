@@ -1,0 +1,32 @@
+version: "3.9"
+services:
+  frigate:
+    container_name: frigate
+    privileged: true # 超级权限，默认即可
+    restart: unless-stopped
+    image: ghcr.io/blakeblackshear/frigate:stable
+    shm_size: "64mb"
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128 # 直通核显的，默认即可
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config:/config # frigate生成的配置文件存放位置
+      - ./storage:/media/frigate # frigate生成的录像保存位置，可以自定义
+      - type: tmpfs
+        target: /tmp/cache
+        tmpfs:
+          size: 1000000000
+    ports:  # 请修改以下每行的第一个端口为未被占用的端口即可，确认都没占用，可不用修改
+      - "8971:8971"
+      - "5555:5000" # frigate的后台UI界面端口，请把5555修改为你当前未占用的端口即可
+      - "8554:8554" # RTSP feeds流的端口
+      - "8555:8555/tcp" # WebRTC over tcp端口
+      - "8555:8555/udp" # WebRTC over udp端口
+    environment:
+      FRIGATE_RTSP_PASSWORD: "password"
+     #以下部分为限制容器对于CPU和内存的最高占用率，不需要可删除，建议开启，避免占用过多资源
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'  # 如N100处理器4核4线程，0.5代表最高占用2核心，0.25代表1核
+          memory: 1024M
