@@ -1,0 +1,14 @@
+services:
+  flare:
+    image: soulteary/flare
+    restart: always  # 始终重启容器
+    command: flare --nologin=0  # 启用账号登录模式
+    environment:
+      - FLARE_USER=admin  # 设置管理员用户名
+      - FLARE_PASS=admin12345  # 设置管理员密码
+      - FLARE_GUIDE=1  # 是否开启“使用向导”，访问 `/guide` 页面
+      - TZ=Asia/Shanghai  # 设置时区为上海
+    ports:
+      - 5005:5005  # 映射容器的 5005 端口到宿主机的 5005 端口
+    volumes:
+      - ./app:/app  # 将当前目录下的 app 文件夹挂载到容器的 /app 目录
