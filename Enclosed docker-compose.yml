@@ -1,0 +1,11 @@
+services:
+  enclosed:
+    image: corentinth/enclosed   # 使用 corentinth/enclosed 镜像
+    container_name: enclosed     # 容器名称，方便管理
+    ports:
+      - 8787:8787                # 映射端口：宿主机 8787 -> 容器 8787
+    volumes:
+      - ./data:/app/.data        # 将当前目录的 data 文件夹挂载到容器内，实现数据持久化
+    environment:
+      - TZ=Asia/Shanghai         # 设置容器时区为上海
+    restart: always              # 自动重启策略：始终重启
