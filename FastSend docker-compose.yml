@@ -1,11 +1,11 @@
 version: '3'
 services:
-  fastsend:
-    image:  918178/fastsend:latest
-    container_name: fastsend
-    restart: always
+  fastsend:                                 # 定义服务名称
+    image:  918178/fastsend:latest          # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: fastsend                # 容器的自定义名称
     ports:
-      - 3000:3000
+      - 3000:3000                           # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
     environment:
-      - NODE_ENV=production
-    command: node server/index.mjs
+      - NODE_ENV=production                 # 设置 Node.js 运行环境为生产模式
+    command: node server/index.mjs          # 容器启动命令
+    restart: always                         # 自动重启策略：容器异常退出时自动重启
