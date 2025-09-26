@@ -1,12 +1,12 @@
-version: '3.3'  # 这是一个Docker Compose文件的版本声明，它表明该文件符合Docker Compose文件格式版本3.3
+version: '3.3'                                 # 这是一个Docker Compose文件的版本
 services:
-    system_it-tools:   #服务名，可以自定义
-        container_name: system_it-tools    #容器名，可以自定义
+    it-tools:                                  # 定义服务名称 it-tools
+        image: qingfeng2336/it-tools:latest    # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+        container_name: it-tools               # 容器的自定义名称
         ports:
-            - '8080:80'   # 冒号:左边的8080可以改成任意vps上未使用过的端口,冒号右边是本docker镜像里的端口
+            - '8080:80'                        # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
         environment:
-            - PUID=0    # 用户ID,在终端输入id可以查看当前用户的id
-            - PGID=0    # 组ID同上
-            - TZ=Asia/Shanghai  #时区，可以自定义
-        restart: always    #开启自启动其他选项看以下备注
-        image: qingfeng2336/it-tools:latest   #镜像名一般都是使用的哪个镜像就写哪个镜像。
+            - PUID=0                           # 用户ID, 可通过命令 `id` 查看当前用户的ID
+            - PGID=0                           # 组ID同上
+            - TZ=Asia/Shanghai                 # 设置容器时区，可自定义
+        restart: always                        # 容器异常退出后自动重启
