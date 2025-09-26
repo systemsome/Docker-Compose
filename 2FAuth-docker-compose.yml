@@ -10,8 +10,8 @@ services:
     environment:
       - APP_NAME=2FAuth      #app应用名
       - APP_KEY=SomeRandomStringOf32CharsExactly   #随机一个32位的字符
-      - APP_URL=https://2fa.ywsj.link    #改成自己的域名带https的
-      - ASSET_URL=https://2fa.ywsj.link  #改成自己的域名带https的
+      - APP_URL=https://2fa.u.th    #改成自己的域名带https的
+      - ASSET_URL=https://2fa.u.th  #改成自己的域名带https的
       - IS_DEMO_APP=false
       - LOG_CHANNEL=daily
       - LOG_LEVEL=notice
