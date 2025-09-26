@@ -7,4 +7,4 @@ services:
       - "7080:80"                         # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
     volumes:
       - ./vw-data:/data                   # 左边是宿主机路径(可自定义)，右边是容器路径(固定)用于数据持久化
-    restart: always
+    restart: always                       # 容器异常退出后自动重启
