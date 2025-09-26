@@ -1,10 +1,10 @@
 version: '3'
 services:
-  vaultwarden:
-    image: vaultwarden/server:latest
-    container_name: vaultwarden
-    volumes:
-      - ./vw-data:/data  #数据持久化
+  vaultwarden:                            # 定义服务名称 vaultwarden
+    image: vaultwarden/server:latest      # 使用的镜像，来自 Docker Hub
+    container_name: vaultwarden           # 容器的自定义名称
     ports:
-      - "7080:80"  #自定义端口7080可以更改
+      - "7080:80"                         # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    volumes:
+      - ./vw-data:/data                   # 左边是宿主机路径(可自定义)，右边是容器路径(固定)用于数据持久化
     restart: always
