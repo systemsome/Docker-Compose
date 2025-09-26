@@ -1,11 +1,12 @@
 version: '3.9'
 services:
-    lobe-chat:
-        image: lobehub/lobe-chat
-        container_name: lobe-chat
+    lobe-chat:                                                                        # 定义服务名称
+        image: lobehub/lobe-chat                                                      # 使用的镜像
+        container_name: lobe-chat                                                     # 容器的自定义名称
         environment:
-            - ACCESS_CODE=123456  #密码设置
-            - 'OPENAI_PROXY_URL=https://api.chatanywhere.tech' #代理地址
-            - OPENAI_API_KEY=sk-08iwtTY8I1cMcrdIM0oIn3AhzECdQVB0IXRV2eNTHkYUKdui  #api
+            - ACCESS_CODE=123456                                                      #密码设置
+            - 'OPENAI_PROXY_URL=https://api.chatanywhere.tech'                        #代理地址
+            - OPENAI_API_KEY=sk-08iwtTY8I1cMcrdIM0oIn3AhzECdQVB0IXRV2eNTHkYUKdui      #api
         ports:
-            - '3210:3210'
+            - '3210:3210'                                                             # 左边是主机端口，右边是容器端口
+        restart: always                                                               # 容器异常退出后自动重启
