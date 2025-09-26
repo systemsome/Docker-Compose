@@ -1,9 +1,9 @@
 services:
-  easyvoice:
+  easyvoice:                          # 定义服务名称
     image: cosincox/easyvoice:latest  # 使用的镜像名称和标签
-    container_name: easyvoice         # 容器的名称
+    container_name: easyvoice         # 容器的自定义名称
     ports:
-      - 3780:3000                     # 映射端口：主机的3780端口 -> 容器的3000端口
+      - 3780:3000                     # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
     volumes:
-      - ./audio:/app/audio       # 将当前目录下的 audio 文件夹挂载到容器内的 /app/audio 路径
-    restart: always                  # 设置容器在退出时自动重启（始终重启）
+      - ./audio:/app/audio            # 将当前目录下的 audio 文件夹挂载到容器内的 /app/audio 路径
+    restart: always                   # 容器异常退出后自动重启
