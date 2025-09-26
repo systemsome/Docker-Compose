@@ -5,7 +5,7 @@ services:
     image: cloudreve/cloudreve:latest
     restart: always
     ports:
-      - "5212:5212"    #:左侧的端口可以自定义
+      - "5212:5212"    # 左边是主机端口，右边是容器端口
     volumes:
       - temp_data:/data
       - ./cloudreve/uploads:/cloudreve/uploads
