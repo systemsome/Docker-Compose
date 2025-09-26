@@ -12,4 +12,4 @@ services:
       - ./data:/app/data                        # 将宿主机 data 文件夹挂载到容器内，实现数据持久化
       - ./etc/localtime:/etc/localtime:ro       # 挂载宿主机本地时间到容器，只读，保证时间一致
       - ./etc/timezone:/etc/timezone:ro         # 挂载宿主机时区文件到容器，只读，保证时区一致
-    restart: always                    # 重启策略：容器退出时自动重启
+    restart: always                             # 重启策略：容器退出时自动重启
