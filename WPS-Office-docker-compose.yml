@@ -1,24 +1,24 @@
 version: "3.9"
-services:  # 定义服务
-  wps-office:  # 服务名称，代表 WPS Office 容器服务
-    image: lscr.io/linuxserver/wps-office:chinese  # 镜像地址和版本，使用 LinuxServer 提供的 WPS Office 中文版镜像
-    container_name: wps-office  # 设置容器名称为 wps-office
-    privileged: true  # 授予容器特权模式，允许访问更多的系统资源（例如硬件）
+services:                                              # 定义服务
+  wps-office:                                          # 服务名称，代表 WPS Office 容器服务
+    image: lscr.io/linuxserver/wps-office:chinese      # 镜像地址和版本，使用 LinuxServer 提供的 WPS Office 中文版镜像
+    container_name: wps-office                         # 设置容器名称为 wps-office
+    privileged: true                                   # 授予容器特权模式，允许访问更多的系统资源（例如硬件）
     security_opt:
-      - seccomp:unconfined  # 取消 seccomp 安全配置（可选），放宽容器的系统调用限制
-    environment:  # 配置环境变量
-      - PUID=1000  # 容器内的用户ID，通常与主机上的用户ID保持一致，避免权限问题
-      - PGID=1000  # 容器内的用户组ID，通常与主机上的组ID保持一致
-      - TZ=Asia/Shanghai  # 设置时区为上海时区
-      - CUSTOM_USER=admin  # 自定义用户名，容器内部使用的用户名
-      - PASSWORD=admin  # 用户密码
-    volumes:  # 配置数据卷，用于持久化存储和共享文件
-      - ./config:/config  # 将主机上的 ./config 目录映射到容器内的 /config 目录，存储 WPS Office 的配置文件
-      - ./Desktop:/config/Desktop #左侧Desktop可以改成自定义的目录存放文档，映射目录到wps的桌面目录
-      - ./Fonts:/usr/share/fonts/wps-fonts  # 将主机上的 ./Fonts 目录映射到容器的字体文件夹，方便添加字体,新增字体直接添加此目录的。
-    ports:  # 配置端口映射，将容器内部端口映射到主机端口
-      - 3005:3000  # http用将主机的 3005 端口映射到容器的 3000 端口
-      - 3006:3001  # https用将主机的 3006 端口映射到容器的 3001 端口
-    shm_size: "1gb"  # 共享内存大小设置为 1GB，以避免 WPS Office 使用过程中内存不足的问题
-    restart: always  # 设置容器的重启策略为 always，确保容器在崩溃或系统重启后自动重启
-    network_mode: bridge  # 设置网络模式为桥接模式，使容器可以通过宿主机网络访问外部资源
+      - seccomp:unconfined                             # 取消 seccomp 安全配置（可选），放宽容器的系统调用限制
+    environment:                                       # 配置环境变量
+      - PUID=1000                                      # 容器内的用户ID，通常与主机上的用户ID保持一致，避免权限问题
+      - PGID=1000                                      # 容器内的用户组ID，通常与主机上的组ID保持一致
+      - TZ=Asia/Shanghai                               # 设置时区为上海时区
+      - CUSTOM_USER=admin                              # 自定义用户名，容器内部使用的用户名
+      - PASSWORD=admin                                 # 自定义密码，容器内部使用的密码
+    volumes:                                           # 配置数据卷，用于持久化存储和共享文件
+      - ./config:/config                               # 将主机上的 ./config 目录映射到容器内的 /config 目录，存储 WPS Office 的配置文件
+      - ./Desktop:/config/Desktop                      #左侧Desktop可以改成自定义的目录存放文档，映射目录到wps的桌面目录
+      - ./Fonts:/usr/share/fonts/wps-fonts             # 将主机上的 ./Fonts 目录映射到容器的字体文件夹，方便添加字体,新增字体直接添加此目录的。
+    ports:                                             # 配置端口映射，将容器内部端口映射到主机端口
+      - 3005:3000                                      # http用将主机的 3005 端口映射到容器的 3000 端口
+      - 3006:3001                                      # https用将主机的 3006 端口映射到容器的 3001 端口
+    shm_size: "1gb"                                    # 共享内存大小设置为 1GB，以避免 WPS Office 使用过程中内存不足的问题
+    restart: always                                    # 设置容器的重启策略为 always，确保容器在崩溃或系统重启后自动重启
+    network_mode: bridge                               # 设置网络模式为桥接模式，使容器可以通过宿主机网络访问外部资源
