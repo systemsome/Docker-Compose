@@ -9,4 +9,3 @@ services:
         volumes:
             - './musicn:/data'                               # 左边是宿主机端口(可自定义)，右边是容器端口(固定)，需要在防火墙开放   
         restart: always                                      # 容器异常退出后自动重启
-
