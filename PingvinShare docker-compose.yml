@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  pingvin-share:                           # 定义服务名称 pingvin-share
+    image: stonith404/pingvin-share        # 使用的镜像，来自 Docker Hub
+    restart: always                        # 容器异常退出后自动重启
+    ports:
+      - 8080:3000                          # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    volumes:
+      - "./data:/opt/app/backend/data"     # ./data表示在当前目录下创建data文件夹用于存放文件
