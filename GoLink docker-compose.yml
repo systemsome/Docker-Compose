@@ -1,4 +1,4 @@
-ervices:
+services:
   golink:                                     # 定义服务名称 golink
     image: ghcr.io/tailscale/golink:main      # 使用的镜像，来自 GitHub Container Registry
     container_name: golink                    # 容器的自定义名称
