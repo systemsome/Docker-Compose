@@ -1,8 +1,8 @@
 version: '3.8'
 services:
-  aipan-netdisk-search:
-    image: unilei/aipan-netdisk-search
-    container_name: aipan-netdisk-search
+  aipan-netdisk-search:                              # 定义服务名称
+    image: unilei/aipan-netdisk-search               # 使用的镜像，来自 Docker Hub
+    container_name: aipan-netdisk-search             # 容器的自定义名称
     ports:
-      - "3000:3000"  #左侧的3000可以自定义
-    restart: always
+      - "3000:3000"                                  # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    restart: always                                  # 自动重启策略：容器异常退出时自动重启
