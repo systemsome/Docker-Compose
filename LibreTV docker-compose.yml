@@ -1,5 +1,5 @@
 services:
-  libretv:
+  libretv:                          # 定义服务名称
     image: bestzwei/libretv:latest  # 使用 libretv 的最新镜像
     container_name: libretv         # 容器名称为 libretv
     ports:
