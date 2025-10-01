@@ -171,7 +171,9 @@
 <summary>展开 / 隐藏</summary>
 
 - [2FAuth](https://github.com/2FAuth) [[项目地址]](https://github.com/Bubka/2FAuth)  
-- [Bitwarden](https://github.com/Bitwarden) [[项目地址]](https://github.com/dani-garcia/vaultwarden)  
+- [Bitwarden](https://github.com/Bitwarden) [[项目地址]](https://github.com/dani-garcia/vaultwarden)
+- [Frigate](https://github.com/Frigate) [[项目地址]](https://github.com/lakeblackshear/frigate)
+- [EasyNVR](https://github.com/EasyNVR) [[项目地址]](https://github.com/EasyNVR/EasyNVR)
 
 </details>
 
