@@ -56,8 +56,8 @@
 - [Musicn](https://github.com/Musicn) [[项目地址]](https://github.com/wy580477/musicn-container)  
 - [Navidrome](https://github.com/Navidrome) [[项目地址]](https://github.com/navidrome/navidrome)  
 - [XiaoMusic](https://github.com/XiaoMusic) [[项目地址]](https://github.com/hanxi/xiaomusic)  
-- [NASMusic](https://github.com/NASMusic) [[项目地址]](https://gitee.com/yanfanVIP/nas-music)  
-
+- [NASMusic](https://github.com/NASMusic) [[项目地址]](https://gitee.com/yanfanVIP/nas-music)
+- [R3PLAYX](https://github.com/R3PLAYX) [[项目地址]](https://gitee.com/Sherlockouo/music)
 </details>
 
 ## ⬇️ 下载类（视频下载/提取） <a id="download"></a>
