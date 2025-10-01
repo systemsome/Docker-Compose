@@ -259,7 +259,7 @@
 <summary>展开 / 隐藏</summary>
 
 - [WordPress](https://github.com/docker-library/wordpress)
-- [Nginx-PHP](https://github.com/Nginx-PHP) [[项目地址]]()  
+- [Nginx-PHP]([https://github.com/Nginx-PHP](https://github.com/systemsome/Docker-Compose/blob/main/Nginx-PHP%20docker-compose.yml)) [[项目地址]]()  
 
 </details>
 
