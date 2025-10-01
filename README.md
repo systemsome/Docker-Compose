@@ -99,11 +99,12 @@
 - [Cloudreve](https://github.com/Cloudreve) [[项目地址]](https://github.com/cloudreve/Cloudreve)  
 - [ZFile](https://github.com/ZFile) [[项目地址]](https://github.com/zfile-dev/zfile)  
 - [KodBox](https://github.com/KodBox) [[项目地址]](https://github.com/kalcaddle/kodbox)  
-- [JmalCloud](https://github.com/JmalCloud) [[项目地址]](https://github.com/jamebal/jmal-cloud-server)  
+- [JmalCloud](https://github.com/JmalCloud) [[项目地址]](https://github.com/jamebal/jmal-cloud-server)
+- [NextCloud](https://github.com/NextCloud) [[项目地址]](https://github.com/nextcloud/all-in-one)  
 - [FileBrowser](https://github.com/FileBrowser) [[项目地址]](https://github.com/filebrowser/filebrowser)  
 - [FilecodeBox](https://github.com/FilecodeBox) [[项目地址]](https://github.com/vastsa/FileCodeBox)  
-- [OpenList](https://github.com/OpenList) [[项目地址]](https://github.com/OpenListTeam/OpenList)  
-
+- [OpenList](https://github.com/OpenList) [[项目地址]](https://github.com/OpenListTeam/OpenList)
+- [WebDAV](https://github.com/WebDAV) [[项目地址]](https://github.com/mgutt/docker-apachewebdav)
 </details>
 
 ## 🔍 资源搜索类 <a id="resource"></a>
