@@ -122,8 +122,8 @@
 <summary>展开 / 隐藏</summary>
 
 - [Cloudflare-ImgBed](https://github.com/Cloudflare-ImgBed) [[项目地址]](https://github.com/MarSeventh/CloudFlare-ImgBed)  
-- [EasyImages](https://github.com/EasyImages) [[项目地址]](https://github.com/icret/EasyImages2.0)  
-
+- [EasyImages](https://github.com/EasyImages) [[项目地址]](https://github.com/icret/EasyImages2.0) 
+- [PicHome](https://github.com/PicHome) [[项目地址]](https://github.com/zyx0814/Pichome) 
 </details>
 
 ## 📤 文件分享类 <a id="fileshare"></a>
