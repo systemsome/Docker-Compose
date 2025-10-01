@@ -45,7 +45,8 @@
 - [MoonTV](https://github.com/MoonTV) [[项目地址]](https://github.com/MoonTechLab/LunaTV)  
 - [LibreTV](https://github.com/LibreTV) [[项目地址]](https://github.com/LibreSpark/LibreTV)  
 - [OrangeTV](https://github.com/OrangeTV) [[项目地址]](https://github.com/djteang/OrangeTV)  
-- [ADBTVhelper](https://github.com/ADBTVhelper) [[项目地址]](https://github.com/wukongdaily/tvhelper-docker )  
+- [ADBTVhelper](https://github.com/ADBTVhelper) [[项目地址]](https://github.com/wukongdaily/tvhelper-docker )
+- [Fireshare](https://github.com/Fireshare) [[项目地址]](https://github.com/ShaneIsrael/fireshare)  
 
 </details>
 
@@ -58,6 +59,7 @@
 - [XiaoMusic](https://github.com/XiaoMusic) [[项目地址]](https://github.com/hanxi/xiaomusic)  
 - [NASMusic](https://github.com/NASMusic) [[项目地址]](https://gitee.com/yanfanVIP/nas-music)
 - [R3PLAYX](https://github.com/R3PLAYX) [[项目地址]](https://gitee.com/Sherlockouo/music)
+
 </details>
 
 ## ⬇️ 下载类（视频下载/提取） <a id="download"></a>
@@ -65,7 +67,8 @@
 <summary>展开 / 隐藏</summary>
 
 - [yt-dlp](https://github.com/yt-dlp) [[项目地址]](https://github.com/marcopiovanello/yt-dlp-web-ui)  
-- [Easy-VDL](https://github.com/Easy-VDL) [[项目地址]](https://hub.docker.com/r/qq918652593/easy-vdl)  
+- [Easy-VDL](https://github.com/Easy-VDL) [[项目地址]](https://hub.docker.com/r/qq918652593/easy-vdl)
+- [Gopeed](https://github.com/Gopeed) [[项目地址]](https://github.com/GopeedLab/gopeed)    
 - [MediaGo](https://github.com/MediaGo) [[项目地址]](https://github.com/caorushizi/mediago)  
 - [MeTuBe](https://github.com/MeTuBe) [[项目地址]](https://github.com/alexta69/metube)  
 - [AllTube](https://github.com/AllTube) [[项目地址]](https://github.com/Rudloff/alltube)  
@@ -137,7 +140,8 @@
 - [PingvinShare](https://github.com/PingvinShare) [[项目地址]](https://github.com/stonith404/pingvin-share)  
 - [PairDrop](https://github.com/PairDrop) [[项目地址]](https://github.com/schlagmichdoch/PairDrop)
 - [FileDrop](https://github.com/FileDrop) [[项目地址]](https://github.com/xtrendence/filedrop)  
-- [GoFile](https://github.com/GoFile) [[项目地址]](https://github.com/songquanpeng/go-file) 
+- [GoFile](https://github.com/GoFile) [[项目地址]](https://github.com/songquanpeng/go-file)
+- [GoLink](https://github.com/GoLink) [[项目地址]](https://github.com/tailscale/golink)
 
 </details>
 
@@ -170,7 +174,8 @@
 <details>
 <summary>展开 / 隐藏</summary>
 
-- [2FAuth](https://github.com/2FAuth) [[项目地址]](https://github.com/Bubka/2FAuth)  
+- [2FAuth](https://github.com/2FAuth) [[项目地址]](https://github.com/Bubka/2FAuth) 
+- [ALLinSSL](https://github.com/ALLinSSL) [[项目地址]](https://github.com/allinssl/allinssl) 
 - [Bitwarden](https://github.com/Bitwarden) [[项目地址]](https://github.com/dani-garcia/vaultwarden)
 - [Frigate](https://github.com/Frigate) [[项目地址]](https://github.com/lakeblackshear/frigate)
 - [EasyNVR](https://github.com/EasyNVR) [[项目地址]](https://github.com/EasyNVR/EasyNVR)
@@ -182,7 +187,8 @@
 <summary>展开 / 隐藏</summary>
 
 - [V2RayA](https://github.com/V2RayA) [[项目地址]](https://github.com/v2rayA/v2rayA)  
-- [EasyNode](https://github.com/EasyNode) [[项目地址]](https://github.com/chaos-zhu/easynode)  
+- [EasyNode](https://github.com/EasyNode) [[项目地址]](https://github.com/chaos-zhu/easynode)
+- [MyIP](https://github.com/MyIP) [[项目地址]](https://github.com/jason5ng32/MyIP)  
 - [Sshwifty](https://github.com/Sshwifty) [[项目地址]](https://github.com/nirui/sshwifty)  
 
 </details>
@@ -233,8 +239,8 @@
 <summary>展开 / 隐藏</summary>
 
 - [DOSGame](https://github.com/DOSGame) [[项目地址]](https://github.com/DOSGame)  
-- [fc-jsnes](https://github.com/fc-jsnes) [[项目地址]](https://github.com/fc-jsnes)  
-- [pvp-wuziqi](https://github.com/pvp-wuziqi) [[项目地址]](https://github.com/pvp-wuziqi)  
+- [FC-Jsnes](https://github.com/fc-jsnes) [[项目地址]](https://github.com/fc-jsnes)  
+- [PVP-五子棋](https://github.com/pvp-wuziqi) [[项目地址]](https://github.com/pvp-wuziqi)  
 - [象棋](https://github.com/象棋) [[项目地址]](https://github.com/象棋)  
 - [五子棋](https://github.com/五子棋) [[项目地址]](https://github.com/五子棋)  
 - [俄罗斯方块](https://github.com/俄罗斯方块) [[项目地址]](https://github.com/俄罗斯方块)  
