@@ -1,0 +1,13 @@
+services:
+  microbin:
+    image: danielszabo99/microbin:latest
+    container_name: microbin
+    restart: always
+    ports:
+     - "6300:8080"
+    volumes:
+     - ./Microbin/data:/app/microbin_data
+    environment:
+      MICROBIN_ADMIN_USERNAME: admin
+      MICROBIN_ADMIN_PASSWORD: admin
+      MICROBIN_ENABLE_BURN_AFTER: "true"
