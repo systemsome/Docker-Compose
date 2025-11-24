@@ -1,7 +1,0 @@
-services:
-  jisuxiang:
-    image: star7th/jisuxiang:latest  # 使用的镜像
-    container_name: jisuxiang        # 容器名称
-    restart: always                  # 总是自动重启容器（例如服务器重启后自动恢复）
-    ports:
-      - "3700:3000"                  # 映射端口：宿主机3700 -> 容器3000

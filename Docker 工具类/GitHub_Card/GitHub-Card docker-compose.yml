@@ -1,9 +1,0 @@
-services:
-  github-card:
-    image: ghcr.io/luler/hello_github_card:latest
-    container_name: github-card
-    restart: unless-stopped
-    ports:
-      - "18000:8000"
-    volumes:
-      - ./images:/app/images        # 持久化存储生成的图片
