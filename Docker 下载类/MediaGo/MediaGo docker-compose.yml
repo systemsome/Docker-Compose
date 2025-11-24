@@ -1,0 +1,9 @@
+services:
+  mediago:  # 定义 mediago 服务
+    image: registry.cn-beijing.aliyuncs.com/caorushizi/mediago:v3.0.0  # 使用指定的镜像
+    container_name: mediago  # 容器名称
+    ports:
+      - "8899:8899"  # 映射主机的 8899 端口到容器的 8899 端口
+    volumes:
+      - ./mediago:/root/mediago  # 挂载本地的 mediago 文件夹到容器内
+    restart: always  # 容器退出时始终重启

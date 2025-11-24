@@ -1,0 +1,19 @@
+services:
+  ytdlp-webui:                                                    # 定义服务名称
+    image: marcobaobao/yt-dlp-webui                               # 使用的镜像，来自 Docker Hub
+    container_name: ytdlp-webui                                   # 容器的自定义名称
+    ports:
+      - "6066:3033"                                               # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    environment:
+      - JWT_SECRET=risenetdlp                                     # 设置 JWT 密钥，用于生成和验证 token
+      - TZ=Asia/Shanghai                                          # 设置容器时区为上海
+    volumes:
+      - ./downloads:/downloads                                    # 左边是宿主机路径(可自定义)，右边是容器路径(固定)
+    command: --auth --user system --pass Someone --qs 5           # 启用身份验证，设置用户名和密码，并限制并发为 5
+    healthcheck:                                                  # 容器健康检查配置
+      test: ["CMD", "curl", "-f", "http://localhost:6066"]        # 健康检查，访问容器端口判断容器是否正常运行
+      interval: 30s                                               # 健康检查间隔时间
+      retries: 3                                                  # 健康检查失败重试次数
+      start_period: 10s                                           # 容器启动后等待时间再开始健康检查
+      timeout: 10s                                                # 每次健康检查超时时间
+    restart: always                                               # 自动重启策略：容器异常退出时自动重启

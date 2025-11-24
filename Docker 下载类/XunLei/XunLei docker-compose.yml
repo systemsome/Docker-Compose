@@ -1,0 +1,24 @@
+version: '3.8'  # 指定 Docker Compose 文件版本
+
+services:
+  xunlei:  # 迅雷容器服务配置
+    image: cnk3x/xunlei  # 使用 cnk3x 提供的迅雷镜像
+    container_name: xunlei  # 容器名称
+    restart: unless-stopped  # 除非手动停止，否则自动重启
+    privileged: true  # 给予容器高权限（迅雷需要）
+    environment:  # 环境变量设置
+      UID: ${TRIM_UID}  # 宿主机用户 UID（来自外部环境变量）
+      GID: ${TRIM_GID}  # 宿主机用户 GID（来自外部环境变量）
+      XL_DASHBOARD_USERNAME: ${wizard_username}  # 迅雷 Web 管理界面用户名
+      XL_DASHBOARD_PASSWORD: ${wizard_password}  # 迅雷 Web 管理界面密码
+    volumes:  # 数据挂载
+      - /var/apps/docker-xunlei/target/data:/xunlei/data  # 迅雷配置与运行数据
+      - /var/apps/docker-xunlei/shares/xunlei/downloads:/xunlei/downloads  # 下载目录
+    ports:
+      - "2345:2345"  # 映射迅雷 Web 页面访问端口
+    networks:
+      - trim-default  # 加入指定外部网络
+
+networks:
+  trim-default:
+    external: true  # 使用外部已存在的 Docker 网络

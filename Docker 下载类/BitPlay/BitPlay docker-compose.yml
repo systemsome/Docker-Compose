@@ -1,0 +1,10 @@
+services:
+  bitplay:
+    image: ghcr.io/aculix/bitplay:main
+    container_name: bitplay
+    ports:
+      - 3347:3347 # Expose the web UI port
+    volumes:
+      # Mount the config directory for persistent settings (Optional)
+      - ./config:/app/config 
+    restart: unless-stopped
