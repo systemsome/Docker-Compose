@@ -1,9 +1,0 @@
-version: '3'
-
-services:
-  cloudflared:
-    image: cloudflare/cloudflared
-    container_name: cloudflared-fnos  #这里自定义容器名         
-    restart: always
-    network_mode: host
-    command: tunnel --no-autoupdate run --token ‘自己刚刚生成的Token值’       #这里填入自己的token即可
