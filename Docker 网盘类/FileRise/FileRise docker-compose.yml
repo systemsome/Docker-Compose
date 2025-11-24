@@ -1,0 +1,17 @@
+version: '3'
+services:
+  filerise:  # 定义服务名称
+    image: error311/filerise-docker:latest  # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: filerise  # 容器的自定义名称
+    restart: always  # 自动重启策略：无论容器如何退出都会自动重启
+    ports:
+      - 6300:80  # 左边是宿主机端口(可自定义) → 右边是容器端口(固定)
+    volumes:  # 数据卷挂载配置
+      - ./uploads:/var/www/uploads     # 左边是宿主机上传文件目录(可自定义) → 右边是容器上传目录(固定)
+      - ./users:/var/www/users         # 左边是宿主机用户数据目录(可自定义) → 右边是容器用户目录(固定)
+      - ./metadata:/var/www/metadata   # 左边是宿主机元数据目录(可自定义) → 右边是容器元数据目录(固定)
+    environment:  # 环境变量配置
+      - TZ=Asia/Shanghai  # 设置容器时区为上海
+      - TOTAL_UPLOAD_SIZE=5G  # 设置上传文件总大小上限为5GB
+      - SECURE=false  # 是否启用 HTTPS 安全模式（false 为关闭）
+      - PERSISTENT_TOKENS_KEY=default_please_change_this_key  # 持久化令牌加密密钥，建议修改为更安全的随机值

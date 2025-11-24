@@ -1,0 +1,11 @@
+version: '3.8'   # docker-compose 文件版本
+services:
+  oasis:   # 定义服务名称
+    image: machengim/oasis:latest   # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: oasis   # 容器的自定义名称
+    restart: unless-stopped   # 自动重启策略：容器异常退出时自动重启，除非手动停止
+    ports:   # 端口映射配置
+      - "8012:8000"   # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    volumes:   # 数据卷挂载配置
+      - /path/to/db:/opt/oasis/db   # 左边是宿主机数据库目录(可自定义)，右边是容器数据库目录(固定)
+      - /path/to/files:/home/storage   # 左边是宿主机存储文件目录(可自定义)，右边是容器存储文件目录(固定

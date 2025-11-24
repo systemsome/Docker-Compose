@@ -1,0 +1,43 @@
+services:
+  db:
+    image: mariadb
+    container_name: webos-mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=webos
+      - MYSQL_DATABASE=webos
+      - MYSQL_LOG_CONSOLE=true
+    restart: always
+    volumes:
+      - '/vol1/1000/webos/db:/var/lib/mysql'
+    networks:
+      - webos-net
+      
+  redis:
+    image: redis:6.2.6
+    container_name: redis
+    restart: always
+    ports:
+      - '6379:6379'
+    volumes:
+      - '/vol1/1000/webos/redis/conf/redis.conf:/etc/redis/redis.conf'
+      - '/vol1/1000/webos/redis/data:/data'
+    command: redis-server --requirepass qwe123..
+    networks:
+      - webos-net
+
+  webos:
+    container_name: webos
+    volumes:
+      - '/vol1/1000/webos/data:/webos/api/rootPath'
+      - '/vol1/1000/webos/apps:/webos/web/apps'
+    restart: always
+    image: xiaohuochaia/webosbeta
+    ports:
+      - '8088:8088'
+      - '8043:8043'
+    networks:
+      - webos-net
+
+networks:
+  webos-net:
+    driver: bridge

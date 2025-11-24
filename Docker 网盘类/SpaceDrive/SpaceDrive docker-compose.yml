@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  spacedrive:
+    image: ghcr.io/spacedriveapp/spacedrive/server:latest
+    container_name: spacedrive
+    restart: unless-stopped
+    ports:
+      - "8080:8080"        # 可改为其他端口
+    environment:
+      - SD_AUTH=admin:spacedrive   # 或 SD_AUTH=disabled
+    volumes:
+      - /opt/spacedrive:/var/spacedrive   # 请改成你的宿主路径
+    # optional: add limits if your host needs it
+    # deploy:
+    #   resources:
+    #     limits:
+    #       memory: 1G

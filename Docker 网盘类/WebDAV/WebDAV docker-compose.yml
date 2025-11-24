@@ -1,0 +1,15 @@
+services:
+  webdav:                                         # 定义服务名称
+    image: apachewebdav/apachewebdav:latest       # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: webdav                        # 容器的自定义名称
+    ports:                                        # 端口映射配置
+      - "8080:80"                                 # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    environment:                                  # 环境变量配置
+      - AUTH_TYPE=Digest                          # WebDAV 认证方式，可选 Basic 或 Digest
+      - USERNAME=webdav                           # 登录用户名(可自定义)
+      - PASSWORD=webdav                           # 登录密码(可自定义)
+      - PUID=1000                                 # 宿主机用户ID，确保文件权限正确
+      - PGID=1001                                 # 宿主机用户组ID，确保文件权限正确
+    volumes:                                      # 数据卷挂载配置
+      - ./data:/var/lib/dav/data                  # 左边是宿主机数据目录(可自定义)，容器内 WebDAV 数据目录(固定)
+    restart: always                               # 自动重启策略：容器异常退出时自动重启

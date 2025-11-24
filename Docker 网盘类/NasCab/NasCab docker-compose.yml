@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  nascab:
+    image: ypptec/nascab          # 镜像名称
+    container_name: nascab        # 容器名称
+    restart: unless-stopped       # 自动重启策略
+    ports:
+      - "8080:80"   # HTTP
+      - "8443:443"  # HTTPS
+      - "8090:90"   # 备用端口
+      - "8021:21"   # FTP
+    volumes:
+      - /home/docker/nascab/mydata:/mydata
+      - /home/docker/nascab/data:/root/.local/share/nascab
+    environment:
+      # 如果镜像支持环境变量，可以在这里添加，例如：
+      # - ADMIN_USER=admin
+      # - ADMIN_PASSWORD=123456

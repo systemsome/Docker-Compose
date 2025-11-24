@@ -1,0 +1,22 @@
+services:
+  hoodik:
+    image: hudik/hoodik:latest
+    container_name: hoodik
+    environment:
+      - DATA_DIR=/data
+      - APP_URL=https://127.0.0.1:5443 #这个必须修改指定为站点的外部访问地址
+      #证书信息可以指定自己的，不指定会自动生成自签证书
+      #- SSL_CERT_FILE=/data/my-cert-file.crt.pem
+      #- SSL_KEY_FILE=/data/my-key-file.key.pem
+      #注册是否需要邮箱验证，需要邮箱验证，可以配置
+      #- MAILER_TYPE=smtp
+      #- SMTP_ADDRESS=smtp.gmail.com
+      #- SMTP_USERNAME=email@gmail.com
+      #- SMTP_PASSWORD=google-account-app-password
+      #- SMTP_PORT=465
+      #- SMTP_DEFAULT_FROM=Hoodik Drive <email@gmail.com>
+    volumes:
+      - ./data:/data #数据存储，sqlite、加密文件等
+    ports:
+      - "5443:5443"
+    restart: unless-stopped
