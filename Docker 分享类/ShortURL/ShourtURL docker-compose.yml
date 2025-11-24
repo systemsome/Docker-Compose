@@ -1,7 +1,0 @@
-services:
-  shourturl:  # 定义服务名称，可自定义
-    image: ellermister/shourturl:latest  # 使用 shourturl 镜像，来自 Docker Hub，latest 表示最新版本
-    container_name: shourturl  # 容器的自定义名称
-    ports:  # 端口映射配置
-      - 777:80  # 左边是宿主机端口(可自定义) → 右边是容器端口(固定)
-    restart: always  # 自动重启策略：无论容器如何退出都会自动重启

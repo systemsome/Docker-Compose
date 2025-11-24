@@ -1,9 +1,0 @@
-services:
-  ferrishare:
-    image: ghcr.io/tobiasmarschner/ferrishare:latest
-    container_name: ferrishare
-    restart: unless-stopped
-    volumes:
-      - ./data:/app/data
-    ports:
-      - 127.0.0.1:3000:3000

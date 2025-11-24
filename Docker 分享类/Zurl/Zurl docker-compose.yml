@@ -1,9 +1,0 @@
-services:
-  zurl:
-    container_name: zurl
-    image: helloz/zurl
-    ports:
-      - "3080:3080"
-    restart: always
-    volumes:
-      - ./data:/opt/zurl/app/data
