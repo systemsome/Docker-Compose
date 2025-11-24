@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  neko:
+    image: "ghcr.io/m1k1o/neko/firefox:latest"
+    restart: "unless-stopped"
+    shm_size: "2gb"
+    ports:
+      - "8080:8080"
+      - "52000-52100:52000-52100/udp"
+    environment:
+      NEKO_SCREEN: 1920x1080@30
+      NEKO_PASSWORD: neko          #普通用户的登录密码
+      NEKO_ADMIN_PASSWORD: admin   #管理员（admin）用户的登录密码
+      NEKO_NAT1TO1: 192.168.1.66   #局域网使用时设置为服务器本地 IP，公网则自动获取公网 IP，可选
+      NEKO_WEBRTC_EPR: 52000-52100
+      NEKO_WEBRTC_ICELITE: 1
