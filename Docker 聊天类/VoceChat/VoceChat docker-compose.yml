@@ -1,0 +1,12 @@
+version: '3'  # 指定 Docker Compose 文件版本
+services:
+  vocechat:  # 定义服务名称，可自定义
+    image: privoce/vocechat-server:latest  # 使用的官方 VoceChat 服务端镜像
+    container_name: vocechat  # 自定义容器名称，便于管理
+    restart: always  # 自动重启策略，系统重启或异常退出时自动拉起
+    ports:  # 端口映射配置
+      - "3000:3000"  # 左边3009是宿主机访问端口(可自定义)，右边3000为容器内部端口(固定)
+    volumes:  # 数据卷挂载配置
+      - ./data:/home/vocechat-server/data  # 挂载本地data目录，用于持久化聊天记录、用户数据等
+    command:  # 启动命令参数
+      - --network.frontend_url "http://0.0.0.0:3009"  # 指定前端访问地址，用于Web端正确通信
