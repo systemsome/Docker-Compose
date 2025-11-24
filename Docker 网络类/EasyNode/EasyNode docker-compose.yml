@@ -1,0 +1,12 @@
+services:
+  easynode:                             # 定义服务名称
+    image: chaoszhu/easynode            # 使用 chaoszhu 发布的 easynode 镜像
+    container_name: easynode            # 容器的自定义名称
+    ports:
+      - 8082:8082                       # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    volumes:
+      - ./easynode/db:/easynode/app/db  # 将当前目录下的 db 文件夹挂载到容器内，实现数据持久化
+    environment:
+      - TZ=Asia/Shanghai                # 设置容器时区为上海
+      - DEBUG=0                         # 关闭调试模式（0 表示关闭，1 表示开启）
+    restart: always                     # 容器异常退出后自动重启

@@ -1,0 +1,7 @@
+services:
+  homebox:
+    image: xgheaven/homebox
+    container_name: homebox
+    ports:
+      - "3300:3300" # 冒号左侧端口可改
+    restart: always

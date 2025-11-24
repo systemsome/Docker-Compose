@@ -1,0 +1,10 @@
+services:
+  intellissh:                          # 服务名称，可自定义
+    image: clusterzx/intellissh:latest # 使用 IntelliSSH 最新镜像
+    container_name: intellissh         # 容器名称，方便管理（可自定义）
+    ports:
+      - 8080:3000                      # 左边是宿主机端口（可自定义） → 右边是容器端口（固定 3000）
+    volumes:
+      # Mount for persistent backend data (SQLite DB, session info, etc.)
+      - ./data:/app/server/data        # 左边是宿主机存储目录（可自定义） → 右边是容器数据目录（固定）
+    restart: unless-stopped            # 自动重启策略：容器异常退出时自动重启

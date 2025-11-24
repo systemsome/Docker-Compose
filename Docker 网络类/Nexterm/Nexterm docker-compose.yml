@@ -1,0 +1,16 @@
+version: '3.8'  # Docker Compose 文件版本
+
+services:
+  nexterm:   # 定义服务名称
+    image: germannewsmaker/nexterm:1.0.5-OPEN-PREVIEW   # 使用的镜像，来自 Docker Hub，1.0.5-OPEN-PREVIEW 表示指定版本
+    container_name: nexterm   # 容器的自定义名称
+    ports:  
+      - "6989:6989"   # 左边是宿主机端口(可自定义)，右边是容器端口(固定)，用于访问 NexTerm Web 控制台
+    restart: always   # 自动重启策略：容器异常退出时自动重启
+    volumes:   # 数据卷挂载配置
+      - ./nexterm/data:/app/data   # 使用命名卷持久化数据，防止容器删除后数据丢失
+    environment:   # 容器环境变量配置
+      - ENCRYPTION_KEY=aba3aa8e29b9904d5d8d705230b664c053415c54be20ad13be99af0057dfa23a   # 数据加密密钥，请替换为你自行生成的随机安全字符串
+
+volumes:   # 定义命名卷
+  nexterm:   # NexTerm 数据存储卷

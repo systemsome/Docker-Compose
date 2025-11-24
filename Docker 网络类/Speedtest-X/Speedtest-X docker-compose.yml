@@ -1,0 +1,11 @@
+ersion: '3.9'  # Docker Compose 文件版本
+
+services:
+  speedtest-x:   # 定义服务名称
+    image: badapple9/speedtest-x   # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: speedtest-x   # 容器的自定义名称
+    tty: true   # 启用伪终端支持，保持容器交互模式运行
+    stdin_open: true   # 打开标准输入流，允许交互式操作
+    ports:
+      - '9001:80'   # 左边是宿主机端口(可自定义)，右边是容器端口(固定)，用于网页访问测速界面
+    restart: always   # 自动重启策略：容器异常退出或系统重启时自动重启
