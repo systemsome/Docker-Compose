@@ -1,0 +1,18 @@
+services:
+  webtop:
+    image: lscr.io/linuxserver/webtop:latest
+    container_name: webtop
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    ports:
+      - "3771:3001"
+    volumes:
+      - "./WebTop/config:/config"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai
+      - TITLE=Webtop
+    shm_size: "1gb"
+    network_mode: bridge

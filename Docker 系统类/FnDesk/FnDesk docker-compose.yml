@@ -1,0 +1,14 @@
+version 3.8  # Docker Compose 文件版本
+services
+  fndesk  # 服务名称（飞牛桌面）
+    image imgzcqfndesklatest  # 使用 imgzcqfndesk 镜像（最新版）
+    container_name fndesk  # 容器名称
+    ports
+      - 99909990  # 端口映射：外部9990 → 容器9990
+      - 99919991              # HTTPS端口 
+    volumes
+      - usrtrimwwwfnw               # 系统关键目录（不能修改）
+      - usrtrimshare.restoreres    # 系统还原目录（不能修改）
+     - usrlocalapps@appcentertrim.mediatrim.media # 开放影视个性化需加入此项
+      - .deskdatadeskdata             # 桌面数据存储目录，可持久化保存
+    restart always  # 容器异常退出时自动重启

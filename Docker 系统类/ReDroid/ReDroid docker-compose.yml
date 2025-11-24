@@ -1,0 +1,39 @@
+services:
+  redroid:
+    image: redroid/redroid:12.0.0_arm64-vnc   # 带 VNC 功能的 Android 镜像（适合网页访问）
+    container_name: redroid
+    privileged: true                            # 必须特权模式
+    tty: true
+    stdin_open: true
+    ports:
+      - "5555:5555"                             # ADB 端口
+      - "5900:5900"                             # VNC 端口（可选）
+    devices:
+      - /dev/dri                                # GPU 加速接口（宿主机需要支持）
+      - /dev/binder                             # Android Binder 接口（宿主机内核需支持）
+    volumes:
+      - /root/redroid_data:/data                # 持久化数据目录
+    environment:
+      - ANDROID_BOOTANIMATION=0                 # 关闭启动动画，加快启动
+    command:
+      - androidboot.redroid_gpu_mode=host
+      - androidboot.use_memfd=1
+      - ro.enable.native.bridge.exec64=1
+      - ro.dalvik.vm.native.bridge=libhoudini.so
+    restart: unless-stopped
+
+  novnc:
+    image: dorowu/ubuntu-desktop-lxde-vnc       # 用于提供网页 VNC 访问的镜像
+    container_name: novnc
+    ports:
+      - "6080:80"                                # 网页访问端口 http://宿主IP:6080
+    environment:
+      - VNC_SERVER=redroid:5900                  # 指向上面 redroid 容器的 VNC 服务
+      - HTTP_PASSWORD=admin                  # 网页访问先输入密码（自定义）
+    depends_on:
+      - redroid
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge
