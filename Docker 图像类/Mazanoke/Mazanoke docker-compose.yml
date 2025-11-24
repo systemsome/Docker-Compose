@@ -1,0 +1,7 @@
+services:  # 定义所有的服务
+  mazanoke:  # 服务名称，可以自定义，这里叫 mazanoke
+    container_name: mazanoke  # 容器实际运行时的名字
+    image: ghcr.io/civilblur/mazanoke:latest  # 镜像来源，这里从 GitHub Container Registry 拉取最新版本
+    ports:  # 端口映射
+      - "3474:80"  # 将宿主机的 3474 端口映射到容器的 80 端口（网页访问端口）
+    restart: unless-stopped  # 容器重启策略：除非手动停止，否则自动重启

@@ -1,0 +1,6 @@
+services:
+  image-matting:
+    image: ihmily/image-matting:latest
+    ports:
+     - 7071:8000
+    restart: always
