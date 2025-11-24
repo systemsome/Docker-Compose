@@ -1,0 +1,11 @@
+services:
+  dysync:                             # 服务名称，可以自定义
+    image: registry.cn-hangzhou.aliyuncs.com/jianzhichu/dysync.net:latest  # 使用的镜像，来自阿里云容器镜像仓库，latest 表示最新版本
+    container_name: dysync            # 容器的自定义名称
+    ports:
+      - "10101:10101"                 # 左边是宿主机端口（可自定义）:右边是容器端口（固定）
+    volumes:  # 数据卷挂载配置
+      - ./collect:/app/collect        # 左边是宿主机的收藏的视频文件目录:右边是容器内的目录，用于同步数据
+      - ./favorite:/app/favorite      # 左边是宿主机的喜欢的视频文件目录:右边是容器内的目录，用于存储收藏数据
+      - ./db:/app/db                  # 左边是宿主机的数据库目录:右边是容器内的数据库目录，用于持久化存储
+    restart: always                   # 自动重启策略：容器退出时会自动重启，除非手动停止

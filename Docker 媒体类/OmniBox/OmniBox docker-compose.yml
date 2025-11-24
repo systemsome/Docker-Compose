@@ -1,0 +1,18 @@
+services:
+   omnibox:
+      image: docker.1ms.run/lampon/omnibox:latest
+      container_name: omnibox
+      ports:
+         - "7023:7023" # 冒号左侧可自定
+      environment:
+         - TZ=Asia/Shanghai
+      volumes:
+         - ./data:/app/data
+      restart: always
+
+      networks:      # 这一段PanSou也要加上重新创建一下 
+         - media-net                
+
+networks:
+  media-net:
+    external: true  

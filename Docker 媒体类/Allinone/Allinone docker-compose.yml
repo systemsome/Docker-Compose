@@ -1,0 +1,12 @@
+version: '3'
+services:
+  allinone_format:
+    image: yuexuangu/allinone_format:latest
+    container_name: allinone_format
+    restart: unless-stopped
+    pull_policy: always
+    network_mode: host # openwrt 等系统可能需要此参数
+    ports:
+      - 35456:35456
+    volumes:
+      - /etc/allinone_format:/app/config

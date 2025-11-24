@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  fireshare:                                # 定义服务名称
+    image: shaneisrael/fireshare:latest     # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: fireshare               # 容器的自定义名称
+    ports:
+      - "8080:80"                           # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    volumes:
+      - ./data:/data                        # 左边是宿主机路径(可自定义)，右边是容器路径(固定)
+      - ./processed:/processed              # 同上
+      - ./videos:/videos                    # 同上
+    environment:
+    - ADMIN_USERNAME=admin                  # 设置管理员用户名
+    - ADMIN_PASSWORD=admin                  # 设置管理员密码
+    restart: always                         # 自动重启策略：容器异常退出时自动重启

@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  migu_video:
+    image: develop767/migu_video:latest
+    container_name: migu_video
+    restart: always
+    network_mode: host
+    environment:
+      - mport=3566
+      - mhost=http://127.0.0.1:3566
+      - muserId=   # 用户id，可在网页端登录获取，如果有需求
+      - mtoken=    # 用户token，可在网页端登录获取，如果有需求
+      - mrateType=3 # 画质 2:标清 3:高清 4:蓝光(需要登录且有VIP)

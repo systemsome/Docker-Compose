@@ -1,0 +1,14 @@
+services:
+  ghosthub:  # 定义服务名称
+    image: dhux/ghosthub:latest  # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: ghosthub  # 容器的自定义名称
+    restart: unless-stopped  # 自动重启策略：除非手动停止，否则容器异常退出会自动重启
+    ports:
+      - "5000:5000"  # 左边是宿主机端口(可自定义) → 右边是容器端口(固定)
+    volumes:  # 数据卷挂载配置
+      - ./instance:/app/instance  # 左边是宿主机配置目录(可自定义) → 右边是容器应用实例目录(固定)
+      - ./media:/media  # 左边是宿主机媒体文件目录(可自定义) → 右边是容器媒体目录(固定)
+    environment:
+      - PORT=5000  # 容器内部服务端口
+      - FLASK_CONFIG=production  # 设置 Flask 配置为生产模式
+      - DOCKER_ENV=true  # 表示运行在 Docker 环境中
