@@ -1,0 +1,12 @@
+services:
+  wuziqi:   # 服务名称（五子棋 PVP 中文版 1）
+    container_name: wuziqi   # 容器名称
+    image: swr.cn-north-4.myhuaweicloud.com/firfe/gomoku_pvp_1_zh-cn:2025.06.28  # 使用的镜像及版本
+    network_mode: bridge   # 网络模式：桥接模式（默认）
+    restart: always   # 设置容器异常退出时自动重启
+    logging:   # 日志配置
+      options:
+        max-size: 1m   # 单个日志文件大小限制为 1MB
+        max-file: '1'  # 最多保留 1 个日志文件（即滚动日志只保留最新的一个）
+    ports:
+      - 5124:5124   # 映射宿主机 5124 端口到容器内 5124 端口

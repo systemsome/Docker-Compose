@@ -1,0 +1,9 @@
+services:
+  jsnes:
+    image: wangz2019/jsnes:1.0.0  # 设置容器使用的镜像
+    container_name: jsnes  # 设置容器的名称
+    ports:
+      - "2048:80"  # 将宿主机的 8081 端口映射到容器的 80 端口
+    restart: always  # 容器总是重新启动（无论退出状态如何）
+    environment:
+      - TZ=Asia/Shanghai  # 设置时区为上海时区

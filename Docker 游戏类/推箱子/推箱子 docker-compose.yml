@@ -1,0 +1,8 @@
+version: '3'
+services:
+  sokoban:
+    image: wbsu2003/sokoban
+    container_name: sokoban
+    restart: unless-stopped
+    ports:
+      - 7180:80

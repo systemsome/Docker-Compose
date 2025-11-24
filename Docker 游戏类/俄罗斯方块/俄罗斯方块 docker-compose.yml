@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  tetris-1:                                                              # 定义服务名称
+    container_name: tetris-1                                             # 容器的自定义名称
+    image: swr.cn-north-4.myhuaweicloud.com/firfe/tetris-1:2019.05.15    # 使用的镜像，来自华为云 SWR 仓库，版本为 2019.05.15
+    network_mode: bridge                                                 # 网络模式使用 bridge
+    ports:                                                               # 端口映射配置
+      - 3000:3000                                                        # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    restart: always                                                      # 自动重启策略：容器异常退出时自动重启
+    logging:                                                             # 容器日志配置
+      options:
+        max-size: 1m                                                     # 单个日志文件最大 1MB
+        max-file: '3'                                                    # 最多保留 3 个日志文件

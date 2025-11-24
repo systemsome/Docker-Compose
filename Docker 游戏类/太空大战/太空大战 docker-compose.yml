@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  star-battle:
+    container_name: star-battle
+    image: swr.cn-north-4.myhuaweicloud.com/firfe/star-battle:2025.05.02
+    network_mode: bridge
+    restart: always
+    logging:
+      options:
+        max-size: 1m
+        max-file: '3'
+    ports:
+      - 3001:3000

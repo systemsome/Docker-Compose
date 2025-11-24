@@ -1,0 +1,7 @@
+services:
+  doudizhu:
+    image: wbsu2003/landlord:latest
+    container_name: doudizhu
+    ports:
+      - "5252:80"
+    restart: unless-stopped
