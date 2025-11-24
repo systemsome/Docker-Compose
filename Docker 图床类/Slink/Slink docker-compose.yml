@@ -1,0 +1,18 @@
+services:
+  slink:  # 定义服务名称
+    image: anirdev/slink:latest   # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: slink   # 容器的自定义名称
+    environment:   # 容器环境变量配置
+      - TZ=UTC   # 设置容器时区，默认 UTC，可根据需要修改
+      - ORIGIN=https://your-domain.com   # 应用的域名（必填，用于 cookies 绑定）
+      - USER_APPROVAL_REQUIRED=true   # 是否需要管理员审核用户后才能上传图片
+      - USER_PASSWORD_MIN_LENGTH=8   # 用户密码最小长度要求
+      - USER_PASSWORD_REQUIREMENTS=15   # 密码复杂度要求（bitmask 表示）
+      - IMAGE_MAX_SIZE=15M   # 上传图片的最大大小，单位 M，最大不能超过 50M
+      - STORAGE_PROVIDER=local   # 存储提供方式，本地存储(local) 或 其他外部存储
+    volumes:   # 数据卷挂载配置
+      - ./slink/var/data:/app/var/data   # 左边是宿主机数据库目录(可自定义)，右边是容器数据库目录(固定)
+      - ./slink/images:/app/slink/images   # 左边是宿主机图片存储目录(可自定义)，右边是容器图片目录(固定)
+    ports:   # 端口映射配置
+      - "3000:3000"   # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    restart: always   # 自动重启策略：容器异常退出时自动重启

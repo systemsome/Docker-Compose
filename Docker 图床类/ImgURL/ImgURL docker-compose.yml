@@ -1,0 +1,8 @@
+services:
+  imgurl:
+    image: zqiannnn/imgurl:2.0
+    ports:
+      - 8080:80
+    volumes:
+      - ./data:/var/www/html/data
+      - ./imgs:/var/www/html/imgs
