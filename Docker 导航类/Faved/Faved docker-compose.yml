@@ -1,0 +1,14 @@
+services:
+  faved-web-app:
+    image: denho/faved:latest
+    container_name: faved-web-app
+    ports:
+      - "666:80"
+      - "6443:443"
+    restart: always
+    working_dir: /var/www/html
+    volumes:
+      - storage:/var/www/html/storage/
+
+volumes:
+  storage:

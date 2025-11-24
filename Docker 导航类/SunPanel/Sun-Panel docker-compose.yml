@@ -1,0 +1,14 @@
+version: "3.2"
+
+services:
+  sun-panel:                                                # 定义服务名称
+    image: "hslr/sun-panel:latest"                          # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: sun-panel                               # 容器的自定义名称
+    ports:
+      - 3002:3002                                            # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    volumes:
+      - ./conf:/app/conf                                    # 左边是宿主机路径(可自定义)，右边是容器配置目录
+      - /var/run/docker.sock:/var/run/docker.sock           # 挂载宿主机 docker.sock 以控制 Docker
+      # - ./runtime:/app/runtime                            # 挂载日志目录（根据需要启用）
+      # - /mnt/sata1-1:/os                                  # 硬盘挂载点（根据自己需求修改）
+    restart: always                                          # 自动重启策略：容器异常退出时自动重启

@@ -1,0 +1,16 @@
+services:
+  homer:  # 服务名称，可自定义
+    image: b4bz/homer  # 使用的镜像（Docker Hub 官方镜像）
+    container_name: homer  # 容器名称
+    ports:
+      - "103:8080"  # 将宿主机 8080 端口映射到容器内 8080 端口
+    volumes:
+      - /vol1/1000/Docker/导航类/Homer/dir:/www/assets
+        # Homer 的配置文件（如 config.yml、图标、背景等）会存放在此目录
+    user: "1000:1000"
+    environment:
+      - INIT_ASSETS=1
+        # 如果配置目录为空，则自动初始化默认配置文件
+        # 初始化后可将该值注释掉，以免覆盖自定义配置
+    restart: always  # 容器异常退出或系统重启后自动启动
+    network_mode: bridge 

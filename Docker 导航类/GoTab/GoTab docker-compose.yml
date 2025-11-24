@@ -1,0 +1,14 @@
+services:
+  gotab:  # 定义服务名称
+    image: doxwant/gotab:latest  # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: gotab  # 容器的自定义名称
+    restart: always  # 自动重启策略：容器退出时自动重启
+    network_mode: host  # 使用宿主机网络模式，端口直接映射
+    ports:
+      - "8080:8080"  # 左边是宿主机端口(可自定义):右边是容器端口(固定)
+    environment:  # 容器内环境变量配置
+      - SERVER_PORT=8080  # 设置服务监听端口为8080
+    volumes:  # 数据卷挂载配置
+      - ./uploads:/app/uploads           # 左边是宿主机上传文件目录(可自定义):右边是容器上传目录(固定)
+      - ./sourceStore:/app/sourceStore   # 左边是宿主机资源存储目录(可自定义):右边是容器资源目录(固定)
+      - ./config.toml:/app/config.toml   # 左边是宿主机配置文件路径(可自定义):右边是容器配置文件路径(固定)

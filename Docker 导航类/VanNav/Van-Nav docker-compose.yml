@@ -1,0 +1,11 @@
+services:  
+  van-nav:                                       # 定义服务名称 tools
+    image: mereith/van-nav:latest                # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: van-nav                      # 容器的自定义名称
+    ports:
+      - "6412:6412"                              # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    environment:
+      - TZ=Asia/Shanghai                         # 设置容器时区为上海
+    volumes:
+      - ./data:/app/data                         # 左边是宿主机路径(可自定义)，右边是容器路径(固定)用于数据持久化
+    restart: always                              # 自动重启策略：容器异常退出时自动重启
