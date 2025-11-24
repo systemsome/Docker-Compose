@@ -1,7 +1,0 @@
-services:
-  tower-blocks:
-    image: heizicao/tower-blocks:latest
-    container_name: tower-blocks
-    ports:
-      - 3000:3000
-    restart: always
