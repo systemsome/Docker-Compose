@@ -1,9 +1,0 @@
-services:
-  minipaint:  # 服务名称
-    container_name: minipaint  # 容器名称
-    image: ywsj/minipaint:latest  # 使用的镜像
-    restart: always  # 自动重启策略
-    ports:
-      - "8080:80"  # 宿主机8080端口映射到容器80端口
-    environment:
-      - TZ=Asia/Shanghai  # 设置时区为上海
