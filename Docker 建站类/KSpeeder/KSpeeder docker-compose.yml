@@ -1,0 +1,11 @@
+services
+  kspeeder
+    image linkeasekspeederlatest
+    container_name kspeeder
+    ports
+      - 54435443
+      - 54235003
+    volumes
+      - .kspeeder-datakspeeder-data
+      - .kspeeder-configkspeeder-config
+    restart unless-stopped
