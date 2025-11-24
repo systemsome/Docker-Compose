@@ -1,0 +1,10 @@
+services:
+    melody:
+        image: foamzou/melody:latest
+        container_name:melody
+        restart: always 
+        ports:
+            - 5566:5566
+        volumes:
+            - /Melody/melody-profile:/app/backend/.profile
+            - /Melody/data:/app/melody-data

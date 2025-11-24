@@ -1,0 +1,8 @@
+version: '3'
+services:
+  yesplaymusic:
+   image: fogforest/yesplaymusic:latest
+    container_name: yesplaymusic
+    ports:
+      - 7950:80
+    restart: always

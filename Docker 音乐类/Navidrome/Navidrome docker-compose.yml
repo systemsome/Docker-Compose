@@ -1,0 +1,26 @@
+services:
+  navidrome:                                                         # 定义服务名称
+    image: deluan/navidrome:latest                                   # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: navidrome                                        # 容器的自定义名称
+    user: 0:0 # should be owner of volumes                           # 容器运行用户，应该为挂载卷的所有者
+    ports:
+      - "5410:4533"                                                  # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    restart: always                                                  # 自动重启策略：容器异常退出时自动重启
+    environment:                                                     # 容器环境变量配置
+      ND_SCANSCHEDULE: 1h                                            # 扫描计划，每1小时扫描一次
+      ND_LOGLEVEL: info                                              # 日志等级
+      ND_SESSIONTIMEOUT: 24h                                         # 会话超时时间
+      ND_BASEURL: ""                                                 # 可选基础 URL
+    volumes:                                                         # 数据卷挂载配置
+      - "./io/data:/data"                                            # 左边是宿主机数据目录(可自定义)，右边是容器存储用户和应用数据的目录
+      - "./io/music:/music:ro"                                       # 左边是宿主机音乐目录(可自定义)，右边是容器读取音乐文件目录，只读
+
+  music_tag_web:                                                     # 定义服务名称
+    image: xhongc/music_tag_web:latest                               # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: music_tag_web                                    # 容器的自定义名称
+    ports:
+      - "8002:8001"                                                  # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    volumes:                                                         # 数据卷挂载配置
+      - ./io/music:/app/media                                        # 左边是宿主机音乐目录(可自定义)，右边是容器媒体目录
+      - ./io/tag/data:/app/data                                      # 左边是宿主机标签数据目录(可自定义)，右边是容器存储应用数据的目录
+    restart: always                                                  # 自动重启策略：容器异常退出时自动重启

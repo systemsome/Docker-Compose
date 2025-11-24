@@ -1,0 +1,22 @@
+version: "3.9"                                                    # docker-compose 文件版本
+services:
+  frontend:                                                       # 定义服务名称 frontend
+    image: sherlockouo/xtify-music-web:latest                     # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: xtify-frontend                                # 容器的自定义名称
+    restart: always                                               # 自动重启策略：容器异常退出时自动重启
+    ports:
+      - "7477:80"                                                 # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    networks:
+      - mynetwork                                                 # 容器所属网络，可用于服务间通信
+
+  backend:                                                        # 定义服务名称 backend
+    image: sherlockouo/xtify-music-server:latest                  # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: xtify-backend                                 # 容器的自定义名称
+    restart: always                                               # 自动重启策略：容器异常退出时自动重启
+    ports:
+      - "35530:35530"                                            # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    networks:
+      - mynetwork                                                # 容器所属网络，可用于服务间通信
+
+networks:
+       mynetwork:

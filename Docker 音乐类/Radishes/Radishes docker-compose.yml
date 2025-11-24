@@ -1,0 +1,6 @@
+services:
+    radishes:
+        image: wbsu2003/radishes:v1
+        container_name: radishes
+        ports:
+            - 3331:80

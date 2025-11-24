@@ -1,0 +1,15 @@
+services:
+  swingmusic:
+    image: hausen1012/swingmusic        # 镜像名称
+    container_name: swingmusic          # 容器名称
+    restart: always                     # 自动重启策略
+    ports:
+      - "1970:1970"                     # 映射端口：主机1970 → 容器1970
+    volumes:
+      - ./config:/config    # 数据卷1：配置、缓存等
+      - ./music:/music  # 数据卷2：音乐文件目录
+    environment:
+      # 你可以在这里设置环境变量（如果镜像支持）
+      # - TZ=Asia/Shanghai               # 设置时区
+      # - ADMIN_USER=admin               # 设置管理员账号
+      # - ADMIN_PASSWORD=123456          # 设置管理员密码
