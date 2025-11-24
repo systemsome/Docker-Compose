@@ -1,9 +1,0 @@
-services:
-  live-torrent:                          # 服务名称，可自定义
-    image: davenchy/live-torrent:latest  # 使用来自 Docker Hub 的镜像，latest 表示最新版本
-    container_name: live-torrent         # 容器名称，可自定义
-    ports:
-      - "7676:8080"   # 映射端口：左边为主机端口，右边为容器内部端口
-    volumes:
-      - ./data:/data  # 挂载数据目录（可选，用于保存种子、配置等）
-    restart: always   # 自动重启策略，确保服务异常退出后自动重启
