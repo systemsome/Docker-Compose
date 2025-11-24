@@ -1,8 +1,0 @@
-services:
-  mindmap:  # 定义服务名称
-    image: hausen1012/mindmap:latest  # 使用的镜像，来自 Docker Hub，latest 表示最新版本
-    container_name: mindmap  # 容器的自定义名称
-    restart: always  # 自动重启策略：无论容器如何退出都会自动重启
-    ports:  # 端口映射配置
-      - "8080:80"  # 左边是宿主机端口(可自定义) → 右边是容器端口(固定)
-      - "8443:443"  # 左边是宿主机端口(可自定义) → 右边是容器端口(固定)
