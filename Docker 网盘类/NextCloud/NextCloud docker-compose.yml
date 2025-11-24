@@ -1,9 +1,0 @@
-services:
-  nextcloud:                     # 定义服务名称
-    image: nextcloud   # 使用的镜像，来自 Docker Hub 官方库
-    container_name: nextcloud   # 容器的自定义名称
-    ports:   # 端口映射配置
-      - "8888:80"   # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
-    volumes:   # 数据卷挂载配置
-      - /mnt/sde/nextcloud:/var/www/html   # 左边是宿主机数据目录(可自定义) → 容器内网站根目录(固定)
-    restart: always   # 自动重启策略：容器异常退出时自动重启
