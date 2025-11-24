@@ -1,0 +1,18 @@
+services:
+  recorder:
+    image: "bililive/recorder:latest"
+    container_name: recorder
+    restart: always
+    networks:
+      - 1panel-network
+    volumes:
+      - "recorder/rec:/rec"
+      - "recorder/storage:/path/to/storage"
+    ports:
+      - "2356:2356"
+    environment:
+      - BREC_HTTP_BASIC_USER=admin
+      - BREC_HTTP_BASIC_PASS=admin
+      - UMASK=022
+      - PUID=1000
+      - PGID=1000
