@@ -1,7 +1,0 @@
-services:
-  magic-tower:
-    image: heizicao/magic-tower:latest
-    container_name: magic-tower
-    ports:
-      - 3000:3000
-    restart: always

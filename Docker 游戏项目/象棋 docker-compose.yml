@@ -1,9 +1,0 @@
-services:
-  my-chess-app:                             # 定义服务名称
-    image: ywsj/my-chess-app:latest         # 使用的镜像，来自 Docker Hub，latest 表示最新版本
-    container_name: my-chess-app            # 容器的自定义名称
-    ports:                                  # 端口映射配置
-      - "6680:80"                           # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
-    environment:                            # 环境变量配置
-      - TZ=Asia/Shanghai                    # 设置容器时区为上海
-    restart: always                         # 自动重启策略：容器异常退出时自动重启
