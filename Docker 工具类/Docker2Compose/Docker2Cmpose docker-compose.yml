@@ -1,0 +1,15 @@
+services:
+  d2c:
+    image: crpi-xg6dfmt5h2etc7hg.cn-hangzhou.personal.cr.aliyuncs.com/cherry4nas/d2c:latest
+    # github镜像源
+    # image: ghcr.io/coracoo/d2c:latest
+    container_name: d2c
+    ports:
+      - "5000:5000"  # Web UI端口
+    environment:
+      - TZ=Asia/Shanghai  # 可选，时区设置
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /{path}/d2c/compose:/app/compose
+      - /{path}/d2c/logs:/app/logs
+      - /{path}/d2c/config:/app/config

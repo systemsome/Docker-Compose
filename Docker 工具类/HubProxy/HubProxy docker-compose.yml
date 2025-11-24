@@ -1,0 +1,11 @@
+version: '3.9'  # Docker Compose 文件版本
+
+services:
+  dockerhub:  # 服务名称，可以自定义
+    image: ghcr.io/sky22333/hubproxy:latest  # 使用来自 GitHub 容器注册表的 hubproxy 镜像
+    container_name: dockerhub  # 容器名称，可自定义
+    restart: always  # 自动重启策略：无论容器如何退出都会自动重启
+    ports:
+      - '5001:5000'  # 映射端口：宿主机5001端口 → 容器5000端口
+    volumes:
+      - ./DockerHub/config.toml:/root/config.toml  # 挂载配置文件到容器中

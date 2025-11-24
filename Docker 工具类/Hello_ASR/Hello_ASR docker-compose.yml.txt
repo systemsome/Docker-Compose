@@ -1,0 +1,8 @@
+services:
+  hello_asr:
+    image: dreamplay/hello_asr:latest
+    container_name: hello_asr
+    network_mode: bridge
+    ports:
+      - 12369:12369
+    restart: always

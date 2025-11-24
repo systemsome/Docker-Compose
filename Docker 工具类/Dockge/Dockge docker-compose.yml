@@ -1,0 +1,13 @@
+services:
+    dockge:  # 服务名称（可自定义）
+        image: louislam/dockge:1  # 使用的镜像，Dockge v1 版本
+        container_name: dockge  # 容器名称
+        restart: always  # 自动重启策略：容器退出或系统重启时都会自动启动
+        ports:
+            - '5001:5001'  # 映射端口：左边为主机端口，右边为容器内部端口（Web访问端口）
+        volumes:
+            - ./var/run/docker.sock:/var/run/docker.sock  # 挂载 Docker 套接字，允许 Dockge 控制宿主机 Docker
+            - ./app/data:/app/data  # Dockge 数据存储目录（保存配置与项目数据）
+            - ./opt/stacks:/opt/stacks  # Stack 项目定义文件目录（Dockge 会从这里读取 compose 配置）
+        environment:
+            - DOCKGE_STACKS_DIR=/opt/stacks  # 指定 Stack 项目文件目录路径（需与上方挂载路径一致）

@@ -1,0 +1,15 @@
+services:
+  rename:  # 服务名称，可自定义
+    image: hausen1012/rename  # 使用的镜像名称
+    container_name: rename  # 容器自定义名称
+    ports:
+      - "8080:80"   # 主机 80 端口映射到容器 80 端口（HTTP）
+      - "8081:443" # 主机 443 端口映射到容器 443 端口（HTTPS）
+    volumes:
+      - /docker/rename/data:/app/data  # 持久化数据卷，将容器内 /app/data 映射到主机目录 /docker/rename/data
+    environment:
+      # 可以在这里添加镜像需要的环境变量，例如：
+      # - ADMIN_USER=admin
+      # - ADMIN_PASSWORD=123456
+      # 如果镜像文档中有说明，请根据需求添加
+    restart: unless-stopped  # 自动重启策略：除非手动停止，否则容器异常退出或主机重启都会自动启动

@@ -1,0 +1,24 @@
+version: '3.8'
+ 
+services:
+  chain-subconverter:
+    image: ghcr.io/slackworker/chain-subconverter:latest
+    container_name: chain-subconverter
+    restart: unless-stopped
+    ports:
+      - "11200:11200"
+    # 建议添加以下生产环境优化配置：
+    environment:
+      - TZ=Asia/Shanghai  # 时区设置
+    volumes:
+      - ./config:/config  # 配置文件持久化
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 11200 || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

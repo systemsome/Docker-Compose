@@ -1,0 +1,9 @@
+services:
+  ip-geoaddress-generator:
+    image: guoogaii/ip-geoaddress-generator:latest
+    container_name: ip-geoaddress-generator   # 自定义容器名（方便管理）
+    ports:
+      - "3000:3000"
+    environment:
+      - TZ=Asia/Shanghai
+    restart: always

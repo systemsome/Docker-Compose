@@ -1,0 +1,7 @@
+services:
+  pdfscan:
+    image: hausen1012/pdfscan:latest
+    container_name: pdfscan
+    ports:
+      - 8080:80
+    restart: unless-stopped

@@ -1,0 +1,11 @@
+services:
+  prompt-manager:
+    image: zhuchenyu2008/prompt-manage:latest
+    container_name: prompt-manager
+    ports:
+      - 3501:3501
+    environment:
+      - FLASK_ENV=production
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
