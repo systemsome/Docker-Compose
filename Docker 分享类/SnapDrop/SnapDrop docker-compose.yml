@@ -1,0 +1,14 @@
+services:
+  snapdrop:
+    image: linuxserver/snapdrop:latest
+    container_name: snapdrop
+    environment:
+      - PUID=1000
+      - PGID=100
+      - TZ=Etc/UTC
+    volumes:
+      - /snapdrop/config:/config
+    ports:
+      - 9080:80
+      - 9043:443
+    restart: unless-stopped

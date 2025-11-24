@@ -1,0 +1,16 @@
+version: "3"
+services:
+  pairdrop:                                             # 定义服务名称
+    image: "lscr.io/linuxserver/pairdrop:latest"        # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: pairdrop                            # 容器的自定义名称
+    ports:
+      - "3500:3000"                                     # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    environment:                                        # 容器环境变量
+      - PUID=1000                                       # 设置容器内应用程序运行的用户 UID
+      - PGID=1000                                       # 设置容器内应用程序运行的用户组 GID
+      - WS_FALLBACK=false                               # 如果 WebRTC 点对点连接不可用，是否启用 WebSocket 回退（默认为 false）
+      - RATE_LIMIT=false                                # 是否启用客户端请求限制，默认不限制
+      - RTC_CONFIG=false                                # 是否配置 STUN/TURN 服务器的路径（默认为 false）
+      - DEBUG_MODE=false                                # 是否启用调试模式，默认为 false
+      - TZ=Etc/UTC                                      # 设置容器时区为 UTC（可以更改为 Asia/Shanghai）
+    restart: always                                     # 自动重启策略：容器异常退出时自动重启
