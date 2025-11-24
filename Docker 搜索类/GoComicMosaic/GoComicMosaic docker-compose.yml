@@ -1,0 +1,13 @@
+services:
+  gocomicmosaic:
+    image: 2011820123/gcm:latest
+    container_name: dongman
+    ports:
+      - "8080:80"
+      - "8443:443"
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - /your/local/path:/app/data
+      - /your/local/path/ssl:/app/ssl # 如果启用HTTPS
+    restart: unless-stopped

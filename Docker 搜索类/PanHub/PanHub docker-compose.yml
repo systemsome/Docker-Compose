@@ -1,0 +1,7 @@
+services: 
+  panhub:                                                 # 定义服务名称
+    image: wu529778790/panhub.shenzjd.com:latest          # 使用的镜像，来自 Docker Hub，latest 表示最新版本
+    container_name: panhub                                # 容器的自定义名称
+    ports:                                                # 端口映射配置
+      - 9451:3000                                         # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    restart: always                                       # 自动重启策略：容器异常退出时自动重启

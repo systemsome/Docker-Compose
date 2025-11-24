@@ -1,0 +1,10 @@
+services:                                      # 定义服务
+  cloudsaver:                                  # 定义服务名称cloudsaver
+    image: jiangrui1994/cloudsaver:latest      # 使用的 Docker 镜像（最新版）
+    container_name: cloud-saver                # 容器的自定义名称 cloud-saver
+    ports:                                     # 端口映射配置
+      - "8008:8008"                            # 左边是宿主机端口(可自定义)，右边是容器端口(固定)
+    volumes:                                   # 数据卷挂载配置
+      - ./data:/app/data                       # 左边是宿主机路径(可自定义)，右边是容器路径(固定)
+      - ./config:/app/config                   # 左边是宿主机路径(可自定义)，右边是容器路径(固定)  
+    restart: always                            # 重启策略：容器退出时总是自动重启
