@@ -1,7 +1,0 @@
-services:
-  windows11-web:
-    image: ghcr.io/blueedgetechno/windows11:master
-    container_name: windows11
-    restart: always
-    ports:
-      - "3018:3000"
