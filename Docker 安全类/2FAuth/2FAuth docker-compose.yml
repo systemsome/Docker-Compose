@@ -1,0 +1,21 @@
+version: "3"
+services:
+  2fauth:
+    image: 2fauth/2fauth     #镜像名
+    container_name: 2fauth   #容器名
+    volumes:
+      - ./data:/2fauth        #数据持久化目录映射
+    ports:
+      - 8000:8000/tcp  #:左侧的8000可以自定义
+    environment:
+      - APP_NAME=2FAuth      #app应用名
+      - APP_KEY=SomeRandomStringOf32CharsExactly   #随机一个32位的字符
+      - APP_URL=https://2fa.u.th    #改成自己的域名带https的
+      - ASSET_URL=https://2fa.u.th  #改成自己的域名带https的
+      - IS_DEMO_APP=false
+      - LOG_CHANNEL=daily
+      - LOG_LEVEL=notice
+      - DB_DATABASE="/srv/database/database.sqlite"
+      - CACHE_DRIVER=file
+      - SESSION_DRIVER=file
+      - AUTHENTICATION_GUARD=web-guard
